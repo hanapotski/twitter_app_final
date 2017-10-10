@@ -22,7 +22,6 @@ class Begin
 		  config.consumer_secret     = ENV['CONSUMER_SECRET']
 		  config.access_token        = ENV['ACCESS_TOKEN']
 		  config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-		  @test_var = ENV['CONSUMER_KEY']
 		 end
 
 		#get the time limit for 24 hours before the time of search and convert it to string 
@@ -60,7 +59,7 @@ class Begin
 		#set up the html code for the page and insert pixel art images and assign it to variable 'template'
 		template = %(
 		<html>
-		<title><%= @test_var %></title>
+		<title>Twitter Pixelart App</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
