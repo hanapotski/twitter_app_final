@@ -53,10 +53,12 @@ class Begin
 		
 		#because the html page this will be rendered into is a four by four grid, take the first four tweets and assign them to an array, then so the same
 		#with the next four tweets
-		top_ten_tweets = reverse_sorted_tweets[0..9]
+		top_eight_tweets = reverse_sorted_tweets[0..7]
 		
 
 		#set up the html code for the page and insert pixel art images and assign it to variable 'template'
+		
+		# todo: make lightbox work, customize, fix aspect ratio
 		template = %(
 			<html>
 			<title>Pixelart App</title>
@@ -69,17 +71,19 @@ class Begin
 			<!-- basic banner -->
 			<div class="mt4 w-100 w-80-m w-60-ns center tc ph3 mb5 mb4-ns">
 			  <h1 class="f2 f1-l fw9 gray-90 mb0 lh-title sans-serif">MY FIRST WEB APP</h1>
-			  <h2 class="fw1 f5 gray-80 mt3 mb4 lh-copy sans-serif">Below are the ten most favourited #pixelart images on Twitter in the past 24 hours.<br>
+			  <h2 class="fw1 f5 gray-80 mt3 mb4 lh-copy sans-serif">Below are the eight most favourited #pixelart images on Twitter in the past 24 hours.<br>
 			  Up-to-date images and their details are pulled from Twitter every time you refresh this page.</h2>
 			</div>
 
 			<!-- top 10 pixelarts -->
-			<section class="cf w-100 pa2-ns">
-			  <% top_ten_tweets.each do |tweet| %>
+			<section class="cf w-100 pa2-ns sans-serif">
+			  <% top_eight_tweets.each do |tweet| %>
 			  <article class="fl w-100 w-50-m mb4 w-25-ns pa2-ns">
-			    <div class="aspect-ratio aspect-ratio--1x1">
-			      <img src="<%= tweet.media[0].media_url %>" 
-			      class="db bg-center cover aspect-ratio--object" data-lightbox="pixelart" data-title="<%= tweet.user.screen_name %>" />
+			    <div class="aspect-ratio aspect-ratio--4x3">
+			      <a href="<%= tweet.media[0].media_url %>" data-lightbox="art" data-title="<%= tweet.user.screen_name %>">
+							<img src="<%= tweet.media[0].media_url %>" 
+							class="db bg-center aspect-ratio--object"  />
+						</a>
 			    </div>
 			      <h3 class="f5 f4-ns mb0 black-90">
 			        <a href="<%= tweet.user.url %>" class="ph1 ph0-ns dim gray link hover-blue"><%= tweet.user.screen_name %></a>
@@ -89,10 +93,11 @@ class Begin
 			        <a href="<%= tweet.url %>" class="ph1 ph0-ns pb3 dim gray link hover-blue">View Tweet</a>
 			      </h3>
 			  </article>
+				<% end %>
 			</section>
 
 			<!-- footer -->
-			<footer class="pv4 ph3 ph5-m ph6-l mid-gray">
+			<footer class="pv4 ph3 ph5-m ph6-l mid-gray sans-serif">
 			  <small class="f6 db tc">© 2017 <b class="ttu">PIXELARTAPP</b></small>
 			  <div class="tc mt1">
 			    <a href="https://github.com/shen-sat" title="Shen" class="f6 dib ph2 link mid-gray dim hover-green">Shen</a> |
