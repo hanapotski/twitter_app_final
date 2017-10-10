@@ -22,7 +22,7 @@ class Begin
 		  config.consumer_secret     = ENV['CONSUMER_SECRET']
 		  config.access_token        = ENV['ACCESS_TOKEN']
 		  config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-		  @test_var = "hello world"
+		  @test_var = ENV['CONSUMER_KEY']
 		 end
 
 		#get the time limit for 24 hours before the time of search and convert it to string 
