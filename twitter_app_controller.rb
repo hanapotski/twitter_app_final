@@ -77,7 +77,7 @@ class Begin
 		<body>
 		<!-- Container (Portfolio Section) -->
 		<div class="w3-content w3-container w3-padding-64" id="portfolio">
-		  <h3 class="w3-center">MY FIRST WEB APP</h3>
+		  <h3 class="w3-center">Daily Pixel Arts</h3>
 		  <p class="w3-center">Below are the eight most favourited #pixelart images on Twitter in the past 24 hours.<br>
 			Up-to-date images and their details are pulled from Twitter every time you refresh this page.<br>
 			<em>Click on the images to make them bigger and view details.</em></p><br>
